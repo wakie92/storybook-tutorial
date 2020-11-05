@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@storybook/addon-knobs": "^6.0.28",
     "babel-plugin-named-asset-import": "^0.3.7",
+    "emotion": "^10.0.27",
     "react-icons": "^3.11.0",
     "react-spring": "^8.0.27",
     "styled-components": "^5.2.1"
@@ -14,6 +14,7 @@
     "@babel/core": "^7.12.3",
     "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-knobs": "^6.0.28",
     "@storybook/addon-links": "^6.0.28",
     "@storybook/react": "^6.0.28",
     "babel-loader": "^8.1.0",
