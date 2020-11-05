@@ -1,5 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+export type HelloProps = {
+  /**  Name you want to show */
+  name: string,
+  /** Setting this value to `true` renders it as an h1 tag. */
+  big?: boolean,
+  /** Function to call when the Hello button is pressed */
+  onHello?: () => void,
+  /** Function to call when the Bye button is pressed */
+  onBye?: () => void,
+}
 
 /**
  * When you want to show hello, use the `Hello` component..
@@ -8,7 +18,7 @@ import PropTypes from 'prop-types';
  * - By setting `onHello` and `onBye` props, you can specify functions to call when the button is clicked..
  */
 
-const Hello = ({ name, big, onHello, onBye }) => {
+const Hello = ({ name, big, onHello, onBye }: HelloProps) => {
   return (
     <div>
       {big ? <h1>Hello, {name}!</h1> : <p>Hello, {name}!</p>}
@@ -18,19 +28,6 @@ const Hello = ({ name, big, onHello, onBye }) => {
       </div>
     </div>
   );
-};
-
-
-// To upload on Docs
-Hello.propTypes = {
-  /**  Name you want to show */
-  name: PropTypes.string.isRequired,
-  /** Setting this value to `true` renders it as an h1 tag. */
-  big: PropTypes.bool,
-  /** Function to call when the Hello button is pressed */
-  onHello: PropTypes.func,
-  /** Function to call when the Bye button is pressed */
-  onBye: PropTypes.func,
 };
 
 Hello.defaultProps = {

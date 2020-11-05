@@ -10,23 +10,22 @@ export default {
     componentSubtitle: 'A component that shows "Hello."',
     docs: {
       page: mdx,
-    }
+    },
   },
   component: Hello,
   decorators: [withKnobs],
-  
-}
+};
 
 // create Knob
 export const hello = () => {
   const big = boolean('big', false);
   const name = text('name', 'Storybook');
-  return <Hello onHello={action('onHello')} onBye={action('onBye')} name={name} big={big} />
-}
+  return <Hello onHello={action('onHello')} onBye={action('onBye')} name={name} big={big} />;
+};
 
 hello.story = {
-  name: 'Default'
-}
+  name: 'Default',
+};
 
-export const standard = () => <Hello name="Storybook" />
-export const big = () => <Hello name="Storybook" big/>
+export const standard = () => <Hello name="Storybook" />;
+export const big = () => <Hello name="Storybook" big />;
