@@ -3,6 +3,6 @@
 # start
 `npm intall` =>  `npm run storybook`
 
-#Branch
+# Branch
 - styled-components, js
 - emotion, ts
