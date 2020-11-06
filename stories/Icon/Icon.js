@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/core";
+import React from "react";
 import * as icons from "./svg";
 import PropTypes from "prop-types";
 
-const IconType = typeof icons;
 export const iconTypes = Object.keys(icons);
 
 /** Use the `icon` component when you want to show the icon.
@@ -15,21 +13,32 @@ export const iconTypes = Object.keys(icons);
 
 export const Icon = ({ icon, color, size, className }) => {
   const SVGIcon = icons[icon];
+  console.log(icons, icon, size, color);
   return (
-    <SVGIcon
-      css={{ fill: color || "currentColor", width: size, height: "auto" }}
-      className={className}
-    />
+    <>
+      <SVGIcon
+        style={{
+          fill: color || "currentColor",
+          width: size,
+          height: "auto",
+          marginRight: "0",
+        }}
+        className={className}
+      />
+    </>
   );
 };
 
 Icon.propTypes = {
   /** Icon type to use */
-  icon: PropTypes.string,
+  icon: PropTypes.string.isRequired,
   /** Icon color */
   color: PropTypes.string,
   /** Icon size */
   size: PropTypes.oneOfType([PropTypes.string | PropTypes.number]),
   className: PropTypes.string,
 };
-export default Icon;
+Icon.defaultProps = {
+  color: "black",
+  size: "auto",
+};

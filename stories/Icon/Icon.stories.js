@@ -1,6 +1,7 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import Icon, { iconTypes } from "./Icon";
+import React from "react";
+import styled from "styled-components";
+
+import { Icon, iconTypes } from "./Icon";
 
 export default {
   title: "components|basic/Icon",
@@ -17,23 +18,23 @@ export const customSize = () => <Icon icon="heart" size="4rem" />;
 export const customColor = () => <Icon icon="heart" color="red" />;
 
 export const customizedWithStyle = () => (
-  <Icon icon="heart" css={{ color: "red", width: "4rem" }} />
+  <Icon icon="heart" color="red" width="4rem" />
 );
 
 export const listOfIcons = () => {
   return (
-    <ul css={iconListStyle}>
+    <IconListStyle>
       {iconTypes.map((icon) => (
         <li key={icon}>
           <Icon icon={icon} />
           {icon}
         </li>
       ))}
-    </ul>
+    </IconListStyle>
   );
 };
 
-const iconListStyle = css`
+const IconListStyle = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -45,6 +46,7 @@ const iconListStyle = css`
     align-items: center;
     svg {
       margin-right: 1rem;
+      font-size: 2rem;
     }
   }
 `;

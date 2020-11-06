@@ -2,6 +2,7 @@
 import { jsx } from "@emotion/core";
 import { style, themes, sizes, iconOnlyStyle, iconOnlySizes } from "./style";
 import PropTypes from "prop-types";
+import { ButtonStory } from "./style";
 
 /** The `Button` component is used to trigger an action.  */
 const Button = ({
@@ -14,19 +15,16 @@ const Button = ({
   iconOnly,
 }) => {
   return (
-    <button
-      css={[
-        style,
-        themes[theme],
-        sizes[size],
-        { width },
-        iconOnly && [iconOnlyStyle, iconOnlySizes[size]],
-      ]}
+    <ButtonStory
+      theme={theme}
+      size={size}
+      width={width}
+      iconOnly={iconOnly}
       disabled={disabled}
       onClick={onClick}
     >
       {children}
-    </button>
+    </ButtonStory>
   );
 };
 
@@ -36,7 +34,7 @@ Button.propTypes = {
   /** function to call when clicking */
   onClick: PropTypes.func,
   /** Sets the appearance of the button */
-  theme: PropTypes.onOf(["primary", "secondary", "tertiary"]),
+  theme: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
   /** Sets the size of the button */
   size: PropTypes.oneOf(["small", "medium", "big"]),
   /** Sets the disabled */
@@ -48,12 +46,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   theme: "primary",
-  size: "medium`",
-  onClick: () => {},
-  theme: "primary",
   size: "medium",
   disabled: false,
-  width: "2rem",
   iconOnly: false,
 };
 

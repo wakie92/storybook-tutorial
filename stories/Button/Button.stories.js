@@ -4,7 +4,7 @@ import { jsx, css } from "@emotion/core";
 import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import Icon from "../Icon/Icon";
+import { Icon } from "../Icon/Icon";
 
 export default {
   title: "components|basic/Button",

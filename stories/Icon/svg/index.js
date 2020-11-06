@@ -1,3 +1,7 @@
-export { ReactComponent as exit } from "./exit.svg";
-export { ReactComponent as heart } from "./heart.svg";
-export { ReactComponent as pencil } from "./pencil.svg";
+import {
+  IoIosHeart as heart,
+  IoIosClose as exit,
+  IoIosAddCircleOutline as add,
+} from "react-icons/io";
+
+export { heart, exit, add };
