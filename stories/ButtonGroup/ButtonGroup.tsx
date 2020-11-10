@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { gapStyle, rightAlignStyle } from './style';
+import { jsx } from "@emotion/core";
+import { gapStyle, rightAlignStyle } from "./styled";
 
 export type ButtonGroupProps = {
   /** Direction to show buttons */
-  direction: 'row' | 'column';
+  direction: "row" | "column";
   /** Show button to right. */
   rightAlign?: boolean;
   /** Sets the distance between the button and buttons. */
@@ -19,12 +19,18 @@ export type ButtonGroupProps = {
  * Use `ButtonGroup` component to show multiple `Button` components or to align buttons to the right.
  */
 
-const ButtonGroup = ({ direction, rightAlign, gap, children, className }: ButtonGroupProps) => {
+const ButtonGroup = ({
+  direction,
+  rightAlign,
+  gap,
+  children,
+  className,
+}: ButtonGroupProps) => {
   return (
     <div
       css={[
         {
-          display: 'flex',
+          display: "flex",
           flexDirection: direction,
         },
         gapStyle(direction, gap),
@@ -38,8 +44,8 @@ const ButtonGroup = ({ direction, rightAlign, gap, children, className }: Button
 };
 
 ButtonGroup.defaultProps = {
-  direction: 'row',
-  gap: '0.5rem',
+  direction: "row",
+  gap: "0.5rem",
 };
 
 export default ButtonGroup;

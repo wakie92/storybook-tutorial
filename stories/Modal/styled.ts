@@ -1,6 +1,8 @@
-import { css } from '@emotion/core';
+import { css } from "@emotion/core";
+import styled from "styled-components";
+import { animated } from "react-spring";
 
-export const fullscreen = css`
+export const Fullscreen = styled(animated.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -8,19 +10,19 @@ export const fullscreen = css`
   height: 100%;
 `;
 
-export const darkLayer = css`
+export const DarkLayer = styled(animated.div)`
   z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);'
 `;
 
-export const whiteBoxWrapper = css`
+export const WhiteBoxWrapper = styled(animated.div)`
   z-index: 15;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const whiteBox = css`
+export const WhiteBox = styled.div<{}>`
   box-sizing: border-box;
   border-radius: 4px;
   width: 25rem;

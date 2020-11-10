@@ -1,37 +1,6 @@
-import { css } from '@emotion/core';
+import styled, { css } from "styled-components";
 
-export const style = css`
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-  height: 2rem;
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
-  background: #20c997;
-  color: white;
-  border-radius: 0.25rem;
-  line-height: 1;
-  font-weight: 600;
-
-  &:focus {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  }
-  &:hover {
-    background: #38d9a9;
-  }
-  &:active {
-    background: #12b886;
-  }
-  &:disabled {
-    cursor: not-allowed;
-  }
-  svg {
-    width: 1em;
-    margin-right: 1em;
-  }
-`;
-
-export const themes = {
+const themes = {
   primary: css`
     background: #20c997;
     color: white;
@@ -82,7 +51,7 @@ export const themes = {
   `,
 };
 
-export const sizes = {
+const sizes = {
   small: css`
     height: 1.75rem;
     font-size: 0.75rem;
@@ -100,7 +69,7 @@ export const sizes = {
   `,
 };
 
-export const iconOnlyStyle = css`
+const iconOnlyStyle = css`
   padding: 0;
   border-radius: 50%;
   svg {
@@ -108,7 +77,7 @@ export const iconOnlyStyle = css`
   }
 `;
 
-export const iconOnlySizes = {
+const iconOnlySizes = {
   small: css`
     width: 1.75rem;
   `,
@@ -119,3 +88,48 @@ export const iconOnlySizes = {
     width: 3rem;
   `,
 };
+
+export const ButtonStory = styled.button<{
+  size: "small" | "medium" | "big";
+  width?: string | number;
+  iconOnly?: boolean;
+  themeType: "primary" | "secondary" | "tertiary";
+}>`
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  height: 2rem;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  background: #20c997;
+  color: white;
+  border-radius: 0.25rem;
+  line-height: 1;
+  font-weight: 600;
+  &:focus {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  }
+  &:hover {
+    background: #38d9a9;
+  }
+  &:active {
+    background: #12b886;
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+  svg {
+    width: 1em;
+    margin-right: 1em;
+  }
+
+  ${({ size }) => sizes[size]}
+  ${({ themeType }) => themes[themeType]}
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `}
+  ${({ iconOnly, size }) =>
+    iconOnly && `${iconOnlySizes[size]} ${iconOnlyStyle}`}
+`;

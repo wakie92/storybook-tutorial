@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { Fragment } from 'react';
-import { jsx } from '@emotion/core';
-import ButtonGroup from '../ButtonGroup/ButtonGroup';
-import Button from '../Button/Button';
-import { fullscreen, darkLayer, whiteBoxWrapper, whiteBox } from './style';
-import { useTransition, animated } from 'react-spring';
+import React, { Fragment } from "react";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import Button from "../Button/Button";
+import { Fullscreen, DarkLayer, WhiteBoxWrapper, WhiteBox } from "./styled";
+import { useTransition } from "react-spring";
 
 export type ModalProps = {
   visible: boolean;
@@ -60,37 +58,41 @@ const Modal = ({
     <Fragment>
       {fadeTransition.map(({ item, key, props }) =>
         item ? (
-          <animated.div css={[fullscreen, darkLayer]} key={key} style={props}></animated.div>
-        ) : null,
+          <Fullscreen style={props} key={key}>
+            <DarkLayer style={props} />
+          </Fullscreen>
+        ) : null
       )}
 
       {slideUpTransition.map(({ item, key, props }) =>
         item ? (
-          <animated.div css={[fullscreen, whiteBoxWrapper]} style={props} key={key}>
-            <div css={whiteBox}>
-              {title && <h3>{title}</h3>}
-              {description && <p>{description}</p>}
-              {children}
-              {!hideButtons && (
-                <ButtonGroup css={{ marginTop: '3rem' }} rightAlign>
-                  {cancellable && (
-                    <Button theme="tertiary" onClick={onCancel}>
-                      {cancelText}
-                    </Button>
-                  )}
-                  <Button onClick={onConfirm}>{confirmText}</Button>
-                </ButtonGroup>
-              )}
-            </div>
-          </animated.div>
-        ) : null,
+          <Fullscreen style={props} key={key}>
+            <WhiteBoxWrapper style={props}>
+              <WhiteBox>
+                {title && <h3>{title}</h3>}
+                {description && <p>{description}</p>}
+                {children}
+                {!hideButtons && (
+                  <ButtonGroup css={{ marginTop: "3rem" }} rightAlign>
+                    {cancellable && (
+                      <Button theme="tertiary" onClick={onCancel}>
+                        {cancelText}
+                      </Button>
+                    )}
+                    <Button onClick={onConfirm}>{confirmText}</Button>
+                  </ButtonGroup>
+                )}
+              </WhiteBox>
+            </WhiteBoxWrapper>
+          </Fullscreen>
+        ) : null
       )}
     </Fragment>
   );
 };
 
 Modal.defaultProps = {
-  cancelText: 'Cancel',
-  confirmText: 'Confirm',
+  cancelText: "Cancel",
+  confirmText: "Confirm",
 };
 export default Modal;

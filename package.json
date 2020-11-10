@@ -26,9 +26,11 @@
     "@storybook/addon-knobs": "^6.0.28",
     "@storybook/addon-links": "^6.0.28",
     "@storybook/react": "^6.0.28",
+    "@types/styled-components": "^5.1.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-named-asset-import": "^0.3.7",
-    "react-is": "^17.0.1"
+    "react-is": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "dependencies": {
     "@emotion/core": "^10.1.1",
