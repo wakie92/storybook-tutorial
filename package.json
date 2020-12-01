@@ -31,6 +31,7 @@
     "@svgr/rollup": "^5.5.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-named-asset-import": "^0.3.7",
+    "chromatic": "^5.4.0",
     "react-is": "^17.0.1",
     "rollup": "^2.33.3",
     "rollup-plugin-babel": "^4.4.0",
